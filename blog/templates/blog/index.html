@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %} 
 {% load static %}
 
 {% block title %} 
@@ -6,56 +6,36 @@
 {% endblock %} 
 
 {% block css_files %}
-  <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
 {% endblock %}
 
 {% block content %}
-  <header id="main-navigation">
-    <h1><a href="">Poe's Blog</a></h1>
-    <nav>
-      <a href="">All Posts</a>
-    </nav>
-  </header>
-
   <section id="welcome">
     <header>
-      <img src="{% static 'blog/images/me.jpeg' %}" alt="Poe - The Author Of This Blog" />
+      <img src="{% static "blog/images/me.jpeg" %}" alt="Poe - The Author Of This Blog" />
       <h2>POE'S BLOG</h2>
     </header>
-    <p>Hi, I am Raven and I love to blog about tech and the world!</p>
+    <p>Hi, I am Poe and I love to blog about tech and the world!</p>
   </section>
 
   <section id="latest-posts">
     <h2>My Latest Thoughts</h2>
-    
+
     <ul>
-      <li>
-        <article class="post">
-          <a href="">
-            <img src="{% static 'blog/images/mountains.jpeg' %}" alt="Mountain Hiking" />
-            <div class="post__content">
-              <h3>Mountain Hiking</h3>
-              <p>
-                Evilprophet stood a the whispered living, some
-                unmerciful mystery as deep shore with was no swung.
-                Or dreaming thinking visiter.
-              </p>
-            </div>
-          </a>
-        </article>
-      </li>
+      {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+      {% endfor %}
     </ul>
   </section>
 
   <section id="about">
     <h2>What I Do</h2>
     <p>
-      Here i fantastic censer fluttered lenore though only soul with. Chamber
-      the flutter rare if volume and i to if,.
+      Of dreaming once and that devil unmerciful dreams. Into much obeisance nearly gloating over, in into meant and bird out.
     </p>
     <p>
-      Doubting the help that i madam. No the weak quaint outpour my, madam the
-      lie pondered i. Bust yore within.
+      My sure upon streaming velvet thy implore said came mystery for, eagerly and seeing beguiling on. Only leave is spoken.
     </p>
   </section>
 {% endblock %}

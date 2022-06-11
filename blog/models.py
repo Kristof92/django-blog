@@ -1,9 +1,12 @@
 from curses import KEY_BACKSPACE
+from distutils.command.upload import upload
 from importlib.resources import contents
+from pickle import TRUE
 from tkinter import image_names
 from turtle import title
 from django.db import models
 from django.core.validators import MinLengthValidator
+from pyparsing import null_debug_action
 
 # Create your models here.
 
@@ -33,7 +36,7 @@ class Author(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=150)
     excerpt = models.CharField(max_length=200)
-    image_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='uploads/posts', null=True)
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
